@@ -8,9 +8,7 @@
 
 ## 演示视频
 
-<video src="https://github.com/user-attachments/assets/9a9c9e46-8f1e-49e6-b316-5a758fc7cf2e" controls width="100%"></video>
-
-
+<video src="https://github.com/user-attachments/assets/1f62cdaa-2433-4d95-b3d0-0e5abeac230f" controls width="100%"></video>
 
 ## 技术栈
 
