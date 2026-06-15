@@ -6,6 +6,12 @@
 
 ---
 
+## 演示视频
+
+<video src="https://github.com/user-attachments/assets/9a9c9e46-8f1e-49e6-b316-5a758fc7cf2e" controls width="100%"></video>
+
+
+
 ## 技术栈
 
 | 层级 | 技术选型 |
