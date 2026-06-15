@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>编辑账单</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+                    colors: { primary: '#6366f1', expense: '#f43f5e', income: '#10b981' }
+                }
+            }
+        }
+    </script>
+    <style>body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }</style>
+</head>
+<body class="w-full h-screen overflow-hidden flex flex-col relative bg-slate-900/40">
+
+    <!-- Bottom Sheet -->
+    <div class="absolute inset-x-0 bottom-0 bg-white rounded-t-3xl flex flex-col h-[85%] shadow-2xl">
+        <!-- Header -->
+        <div class="px-5 py-4 flex justify-between items-center border-b border-slate-100">
+            <button onclick="window.history.back()" class="text-slate-400 hover:text-slate-600 p-2 -ml-2">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            <h2 class="font-bold text-slate-800 text-lg">编辑账单</h2>
+            <button onclick="window.history.back()" class="text-primary font-medium p-2 -mr-2">保存</button>
+        </div>
+
+        <!-- Scrollable Content -->
+        <div class="flex-1 overflow-y-auto px-5 py-6 space-y-6">
+            
+            <!-- Type Toggle -->
+            <div class="flex bg-slate-100 rounded-xl p-1">
+                <button class="flex-1 py-2 bg-white rounded-lg shadow-sm font-medium text-slate-800 text-sm">支出</button>
+                <button class="flex-1 py-2 rounded-lg font-medium text-slate-500 text-sm">收入</button>
+            </div>
+
+            <!-- Amount -->
+            <div>
+                <p class="text-slate-500 text-xs mb-2 ml-1">金额</p>
+                <div class="flex items-center bg-slate-50 rounded-2xl p-4 border border-slate-100">
+                    <span class="text-xl mr-2 text-slate-400 font-medium">¥</span>
+                    <input type="number" value="-48.00" class="w-full bg-transparent border-none focus:outline-none text-2xl font-bold text-expense" />
+                </div>
+            </div>
+
+            <!-- Title -->
+            <div>
+                <p class="text-slate-500 text-xs mb-2 ml-1">标题</p>
+                <div class="flex items-center bg-slate-50 rounded-2xl p-4 border border-slate-100">
+                    <input type="text" value="麦当劳午餐" class="w-full bg-transparent border-none focus:outline-none text-slate-800 font-medium" />
+                </div>
+            </div>
+
+            <!-- Category Grid -->
+            <div>
+                <p class="text-slate-500 text-xs mb-2 ml-1">分类</p>
+                <div class="grid grid-cols-4 gap-3">
+                    <div class="flex flex-col items-center justify-center p-3 rounded-2xl bg-orange-50 border border-orange-200">
+                        <span class="text-2xl mb-1">🍔</span>
+                        <span class="text-xs text-orange-600 font-medium">餐饮</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-center p-3 rounded-2xl bg-slate-50 border border-slate-100 hover:bg-slate-100 cursor-pointer">
+                        <span class="text-2xl mb-1">🚗</span>
+                        <span class="text-xs text-slate-500 font-medium">交通</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-center p-3 rounded-2xl bg-slate-50 border border-slate-100 hover:bg-slate-100 cursor-pointer">
+                        <span class="text-2xl mb-1">🛒</span>
+                        <span class="text-xs text-slate-500 font-medium">购物</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-center p-3 rounded-2xl bg-slate-50 border border-slate-100 hover:bg-slate-100 cursor-pointer">
+                        <span class="text-2xl mb-1">🏠</span>
+                        <span class="text-xs text-slate-500 font-medium">居住</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-center p-3 rounded-2xl bg-slate-50 border border-slate-100 hover:bg-slate-100 cursor-pointer">
+                        <span class="text-2xl mb-1">🎮</span>
+                        <span class="text-xs text-slate-500 font-medium">娱乐</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-center p-3 rounded-2xl bg-slate-50 border border-slate-100 hover:bg-slate-100 cursor-pointer">
+                        <span class="text-2xl mb-1">🏥</span>
+                        <span class="text-xs text-slate-500 font-medium">医疗</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-center p-3 rounded-2xl bg-slate-50 border border-slate-100 hover:bg-slate-100 cursor-pointer">
+                        <span class="text-2xl mb-1">🎁</span>
+                        <span class="text-xs text-slate-500 font-medium">人情</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-center p-3 rounded-2xl bg-slate-50 border border-slate-100 hover:bg-slate-100 cursor-pointer">
+                        <span class="text-2xl mb-1 text-slate-300">···</span>
+                        <span class="text-xs text-slate-500 font-medium">更多</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Date -->
+            <div>
+                <p class="text-slate-500 text-xs mb-2 ml-1">日期</p>
+                <div class="flex items-center justify-between bg-slate-50 rounded-2xl p-4 border border-slate-100">
+                    <span class="text-slate-800 font-medium">2026年06月15日</span>
+                    <i class="fa-regular fa-calendar text-slate-400"></i>
+                </div>
+            </div>
+
+            <!-- Delete Button -->
+            <div class="pt-4 pb-8">
+                <button onclick="window.history.back()" class="w-full flex items-center justify-center space-x-2 bg-red-50 text-red-500 font-medium py-4 rounded-2xl border border-red-100">
+                    <i class="fa-regular fa-trash-can"></i>
+                    <span>删除账单</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

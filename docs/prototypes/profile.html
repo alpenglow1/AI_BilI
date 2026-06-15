@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>AI 记账 - 我</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#6366f1',
+                        bgSoft: '#f8fafc',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+</head>
+
+<body class="w-full h-full h-screen overflow-hidden flex flex-col relative text-slate-800 bg-slate-50">
+
+    <!-- Mock iOS Status Bar Area -->
+    <div class="h-12 w-full flex-shrink-0 z-50"></div>
+
+    <!-- Header -->
+    <div class="px-6 py-2 text-center relative z-10 mb-2">
+        <h1 class="text-xl font-bold text-slate-800">我</h1>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 overflow-y-auto px-5 pb-24">
+
+        <!-- User Info Card -->
+        <div class="flex flex-col items-center justify-center py-6 mb-2">
+            <div class="w-20 h-20 rounded-full bg-gradient-to-tr from-primary to-purple-400 flex items-center justify-center text-white text-3xl font-bold shadow-md mb-3">
+                J
+            </div>
+            <p class="text-slate-500 font-medium">jerri@example.com</p>
+        </div>
+
+        <!-- Action List -->
+        <div class="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden mb-6">
+            <div onclick="window.location.href='editUsernameModal.html'"
+                class="flex items-center justify-between p-4 px-5 border-b border-slate-50 cursor-pointer hover:bg-slate-50 transition-colors">
+                <div class="flex items-center space-x-3 text-slate-700">
+                    <div class="w-8 h-8 rounded-full bg-indigo-50 text-indigo-500 flex items-center justify-center">
+                        <i class="fa-solid fa-user-pen text-sm"></i>
+                    </div>
+                    <span class="font-medium text-sm">用户名</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <span class="text-sm text-slate-500">Jerri</span>
+                    <i class="fa-solid fa-chevron-right text-xs text-slate-300 ml-1"></i>
+                </div>
+            </div>
+
+            <div onclick="window.location.href='editPasswordModal.html'"
+                class="flex items-center justify-between p-4 px-5 border-b border-slate-50 cursor-pointer hover:bg-slate-50 transition-colors">
+                <div class="flex items-center space-x-3 text-slate-700">
+                    <div class="w-8 h-8 rounded-full bg-blue-50 text-blue-500 flex items-center justify-center">
+                        <i class="fa-solid fa-lock text-sm"></i>
+                    </div>
+                    <span class="font-medium text-sm">密码</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <span class="text-sm text-slate-500 tracking-widest mt-1">••••••••</span>
+                    <i class="fa-solid fa-chevron-right text-xs text-slate-300 ml-1"></i>
+                </div>
+            </div>
+
+
+
+        </div>
+
+        <!-- Logout Button -->
+        <button
+            class="w-full bg-white rounded-2xl p-4 text-center text-red-500 font-medium shadow-sm border border-slate-100 hover:bg-red-50 transition-colors active:scale-95">
+            退出登录
+        </button>
+
+        <div class="text-center mt-8">
+            <p class="text-xs text-slate-400">AI 记账 App v1.0.0</p>
+        </div>
+    </div>
+
+    <!-- Bottom Tab Bar -->
+    <div
+        class="absolute bottom-0 w-full bg-white border-t border-slate-100 px-6 py-2 pb-6 flex justify-between items-center z-50">
+        <a href="home.html" class="flex flex-col items-center p-2 text-slate-400 hover:text-primary transition-colors">
+            <i class="fa-solid fa-house text-xl mb-1"></i>
+            <span class="text-[10px] font-medium">明细</span>
+        </a>
+        <a href="chat.html"
+            class="flex flex-col items-center p-2 text-slate-400 hover:text-primary transition-colors -mt-6">
+            <div
+                class="w-14 h-14 bg-primary text-white rounded-full flex items-center justify-center shadow-lg shadow-primary/30 border-4 border-slate-50">
+                <i class="fa-solid fa-plus text-xl"></i>
+            </div>
+        </a>
+        <a href="profile.html" class="flex flex-col items-center p-2 text-primary">
+            <i class="fa-solid fa-user text-xl mb-1"></i>
+            <span class="text-[10px] font-medium">我</span>
+        </a>
+    </div>
+
+</body>
+
+</html>

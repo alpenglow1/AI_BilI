@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>AI 记账 - 注册</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#6366f1', // Indigo 500
+                        primaryDark: '#4f46e5', // Indigo 600
+                        bgSoft: '#f8fafc', // Slate 50
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #e0e7ff 0%, #ede9fe 100%);
+            -webkit-font-smoothing: antialiased;
+        }
+        /* Hide scrollbar */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="w-full h-full h-screen overflow-hidden flex flex-col relative text-slate-800">
+
+    <!-- Mock iOS Status Bar Area (Space) -->
+    <div class="h-12 w-full flex-shrink-0 z-50"></div>
+
+    <!-- Main Content -->
+    <div class="flex-1 px-8 pt-8 pb-8 flex flex-col justify-center">
+        <!-- Header -->
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold mb-2">创建账号</h1>
+            <p class="text-slate-500 text-sm">开启您的智能记账之旅</p>
+        </div>
+
+        <!-- Form Area (Glassmorphism) -->
+        <div class="bg-white/60 backdrop-blur-xl rounded-3xl p-6 shadow-sm border border-white/50">
+            <div class="mb-4">
+                <label class="block text-xs font-semibold text-slate-500 mb-1.5 uppercase tracking-wider ml-1">邮箱</label>
+                <div class="relative">
+                    <i class="fa-regular fa-envelope absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400"></i>
+                    <input type="email" placeholder="example@email.com" class="w-full bg-white/80 border border-slate-200 rounded-xl py-3 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all shadow-sm text-sm">
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <label class="block text-xs font-semibold text-slate-500 mb-1.5 uppercase tracking-wider ml-1">设置密码</label>
+                <div class="relative">
+                    <i class="fa-solid fa-lock absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400"></i>
+                    <input type="password" placeholder="至少 6 位字符" class="w-full bg-white/80 border border-slate-200 rounded-xl py-3 pl-10 pr-10 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all shadow-sm text-sm">
+                    <button class="absolute right-4 top-1/2 transform -translate-y-1/2 text-slate-400 hover:text-slate-600 focus:outline-none">
+                        <i class="fa-regular fa-eye-slash"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="mb-8">
+                <label class="block text-xs font-semibold text-slate-500 mb-1.5 uppercase tracking-wider ml-1">确认密码</label>
+                <div class="relative">
+                    <i class="fa-solid fa-lock absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400"></i>
+                    <input type="password" placeholder="再次输入密码" class="w-full bg-white/80 border border-slate-200 rounded-xl py-3 pl-10 pr-10 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all shadow-sm text-sm">
+                    <button class="absolute right-4 top-1/2 transform -translate-y-1/2 text-slate-400 hover:text-slate-600 focus:outline-none">
+                        <i class="fa-regular fa-eye-slash"></i>
+                    </button>
+                </div>
+            </div>
+
+            <button class="w-full bg-primary hover:bg-primaryDark text-white font-medium py-3.5 rounded-xl shadow-lg shadow-primary/30 transition-all transform active:scale-95 flex items-center justify-center space-x-2">
+                <span>注册并登录</span>
+            </button>
+        </div>
+
+        <!-- Bottom Link -->
+        <div class="mt-8 text-center">
+            <p class="text-sm text-slate-500">
+                已有账号？ 
+                <a href="login.html" class="text-primary font-semibold hover:underline">立即登录</a>
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>

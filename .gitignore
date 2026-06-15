@@ -1,0 +1,10 @@
+# macOS
+.DS_Store
+
+# IDE
+.idea/
+
+# 环境变量（子目录另有自己的 .gitignore，这里是根目录兜底）
+.env
+.env.*
+!.env.example

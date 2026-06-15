@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>AI 记账 - 首页</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#6366f1',
+                        expense: '#f43f5e', // Rose 500
+                        income: '#10b981', // Emerald 500
+                        bgSoft: '#f8fafc',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            -webkit-font-smoothing: antialiased;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="w-full h-full h-screen overflow-hidden flex flex-col relative text-slate-800 bg-slate-50">
+
+    <!-- Mock iOS Status Bar Area -->
+    <div class="h-12 w-full flex-shrink-0 z-50 bg-primary"></div>
+
+    <!-- Header & Date Navigator -->
+    <div class="bg-primary text-white rounded-b-3xl pb-6 px-5 pt-2 shadow-sm relative z-10">
+        <div class="flex justify-between items-center mb-6">
+            <button class="w-8 h-8 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/30 transition-colors">
+                <i class="fa-solid fa-chevron-left text-sm"></i>
+            </button>
+            <div class="flex items-center space-x-2 font-medium text-lg cursor-pointer">
+                <span>2026年6月1日</span>
+                <i class="fa-solid fa-caret-down text-xs opacity-70"></i>
+            </div>
+            <button class="w-8 h-8 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/30 transition-colors">
+                <i class="fa-solid fa-chevron-right text-sm"></i>
+            </button>
+        </div>
+
+        <!-- Summary Bar -->
+        <div class="flex justify-between items-center px-2">
+            <div class="text-center">
+                <p class="text-xs text-white/70 mb-1">支出</p>
+                <p class="font-semibold text-lg">¥158.50</p>
+            </div>
+            <div class="w-px h-8 bg-white/20"></div>
+            <div class="text-center">
+                <p class="text-xs text-white/70 mb-1">收入</p>
+                <p class="font-semibold text-lg">¥5,000.00</p>
+            </div>
+            <div class="w-px h-8 bg-white/20"></div>
+            <div class="text-center">
+                <p class="text-xs text-white/70 mb-1">结余</p>
+                <p class="font-semibold text-lg text-green-300">¥4,841.50</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content: Bill List -->
+    <div class="flex-1 overflow-y-auto no-scrollbar px-5 pt-4 pb-24">
+        <div class="mb-4 flex justify-between items-center">
+            <h2 class="font-semibold text-slate-700">今日明细</h2>
+            <span class="text-xs text-slate-400">共 3 笔</span>
+        </div>
+
+        <div class="space-y-3">
+            <!-- Expense Item -->
+            <div onclick="window.location.href='editModal.html'" class="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 flex items-center justify-between group cursor-pointer hover:shadow-md transition-all">
+                <div class="flex items-center space-x-4">
+                    <div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center text-orange-500">
+                        <i class="fa-solid fa-utensils text-sm"></i>
+                    </div>
+                    <div>
+                        <p class="font-medium text-slate-800">午餐</p>
+                       
+                    </div>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <p class="font-semibold text-expense">-¥35.00</p>
+                    <button class="w-6 h-6 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center hover:bg-primary/10 hover:text-primary transition-colors">
+                        <i class="fa-solid fa-pen text-[10px]"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Expense Item -->
+            <div onclick="window.location.href='editModal.html'" class="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 flex items-center justify-between group cursor-pointer hover:shadow-md transition-all">
+                <div class="flex items-center space-x-4">
+                    <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-500">
+                        <i class="fa-solid fa-car text-sm"></i>
+                    </div>
+                    <div>
+                        <p class="font-medium text-slate-800">打车费</p>
+                       
+                    </div>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <p class="font-semibold text-expense">-¥23.50</p>
+                    <button class="w-6 h-6 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center hover:bg-primary/10 hover:text-primary transition-colors">
+                        <i class="fa-solid fa-pen text-[10px]"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Income Item -->
+            <div onclick="window.location.href='editModal.html'" class="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 flex items-center justify-between group cursor-pointer hover:shadow-md transition-all">
+                <div class="flex items-center space-x-4">
+                    <div class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-500">
+                        <i class="fa-solid fa-sack-dollar text-sm"></i>
+                    </div>
+                    <div>
+                        <p class="font-medium text-slate-800">工资收入</p>
+                        
+                    </div>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <p class="font-semibold text-income">+¥5,000.00</p>
+                    <button class="w-6 h-6 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center hover:bg-primary/10 hover:text-primary transition-colors">
+                        <i class="fa-solid fa-pen text-[10px]"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="text-center pt-4 pb-2">
+                <p class="text-xs text-slate-400">没有更多记录了</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Tab Bar -->
+    <div class="absolute bottom-0 w-full bg-white border-t border-slate-100 px-6 py-2 pb-6 flex justify-between items-center z-50">
+        <a href="home.html" class="flex flex-col items-center p-2 text-primary">
+            <i class="fa-solid fa-house text-xl mb-1"></i>
+            <span class="text-[10px] font-medium">明细</span>
+        </a>
+        <a href="chat.html" class="flex flex-col items-center p-2 text-slate-400 hover:text-primary transition-colors -mt-6">
+            <div class="w-14 h-14 bg-primary text-white rounded-full flex items-center justify-center shadow-lg shadow-primary/30 border-4 border-slate-50">
+                <i class="fa-solid fa-plus text-xl"></i>
+            </div>
+        </a>
+        <a href="profile.html" class="flex flex-col items-center p-2 text-slate-400 hover:text-primary transition-colors">
+            <i class="fa-solid fa-user text-xl mb-1"></i>
+            <span class="text-[10px] font-medium">我</span>
+        </a>
+    </div>
+
+
+</body>
+</html>

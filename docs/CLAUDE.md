@@ -1,0 +1,2 @@
+写任何代码前必须完整阅读@requirements.md
+涉及到前端的代码必须完整阅读/prototypes目录下的文件，确保ui对齐

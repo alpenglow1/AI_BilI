@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>AI 记账 - 对话</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#6366f1',
+                        expense: '#f43f5e',
+                        bgSoft: '#f8fafc',
+                    }
+                }
+            }
+        }
+    </script>f
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+
+<body class="w-full h-full h-screen overflow-hidden flex flex-col relative text-slate-800 bg-slate-50">
+
+    <!-- Mock iOS Status Bar Area -->
+    <div class="h-12 w-full flex-shrink-0 z-50 bg-white border-b border-slate-100/50"></div>
+
+    <!-- Header -->
+    <div class="bg-white px-5 py-3 flex justify-between items-center shadow-sm relative z-10">
+        <div class="flex items-center space-x-2">
+            <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                <i class="fa-solid fa-robot text-sm"></i>
+            </div>
+            <h1 class="font-bold text-slate-800">AI 记账助手</h1>
+        </div>
+        <button class="text-slate-400 hover:text-red-500 transition-colors flex items-center space-x-1">
+            <i class="fa-regular fa-trash-can text-sm"></i>
+            <span class="text-xs font-medium">清除对话</span>
+        </button>
+    </div>
+
+    <!-- Chat Area -->
+    <div class="flex-1 overflow-y-auto no-scrollbar p-5 pb-32 flex flex-col space-y-5">
+
+        <!-- Time Divider -->
+        <div class="text-center">
+            <span class="bg-slate-200/50 text-slate-500 text-[10px] px-3 py-1 rounded-full">今天 10:24</span>
+        </div>
+
+        <!-- User Message -->
+        <div class="flex justify-end">
+            <div class="bg-primary text-white rounded-2xl rounded-tr-sm px-4 py-2.5 max-w-[75%] shadow-sm text-sm">
+                Hi~
+            </div>
+        </div>
+
+        <!-- AI Text Message -->
+        <div class="flex justify-start">
+            <div
+                class="bg-white border border-slate-100 text-slate-700 rounded-2xl rounded-tl-sm px-4 py-2.5 max-w-[75%] shadow-sm text-sm">
+                你好！我是AI记账助手，直接告诉我你花了什么钱吧~
+            </div>
+        </div>
+
+        <!-- User Message -->
+        <div class="flex justify-end">
+            <div class="bg-primary text-white rounded-2xl rounded-tr-sm px-4 py-2.5 max-w-[75%] shadow-sm text-sm">
+                昨天打车花了23块
+            </div>
+        </div>
+
+        <!-- AI Loading / Typing (Optional visual flair) -->
+        <div class="flex justify-start">
+            <div
+                class="bg-white border border-slate-100 text-slate-400 rounded-2xl rounded-tl-sm px-4 py-3 max-w-[75%] shadow-sm text-sm flex space-x-1.5 items-center">
+                <div class="w-1.5 h-1.5 bg-slate-300 rounded-full animate-bounce"></div>
+                <div class="w-1.5 h-1.5 bg-slate-300 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+                <div class="w-1.5 h-1.5 bg-slate-300 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+            </div>
+        </div>
+
+        <!-- AI Bill Preview Card -->
+        <div class="flex justify-start">
+            <div class="w-[85%] max-w-[280px]">
+                <div
+                    class="bg-white border border-slate-100 rounded-2xl rounded-tl-sm p-4 shadow-sm relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-primary"></div>
+                    <div class="flex items-center space-x-3 mb-2">
+                        <div class="w-8 h-8 rounded-full bg-blue-50 text-blue-500 flex items-center justify-center">
+                            <i class="fa-solid fa-car text-xs"></i>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-slate-800 text-sm">打车费</p>
+                        </div>
+                    </div>
+                    <div class="mt-2 text-xl font-bold text-expense">
+                        -¥23.00
+                    </div>
+                </div>
+
+                <!-- Card Actions -->
+                <div class="flex space-x-2 mt-2 ml-1">
+                    <button
+                        class="flex-1 bg-primary text-white text-xs font-medium py-2 rounded-xl shadow-sm shadow-primary/20 hover:bg-primaryDark active:scale-95 transition-all">
+                        <i class="fa-solid fa-check mr-1"></i> 确认入账
+                    </button>
+                    <button
+                        class="flex-1 bg-white border border-slate-200 text-slate-600 text-xs font-medium py-2 rounded-xl shadow-sm hover:bg-slate-50 active:scale-95 transition-all">
+                        <i class="fa-solid fa-pen mr-1 text-[10px]"></i> 修改
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Input Area -->
+    <div
+        class="absolute bottom-[80px] w-full px-4 py-2 bg-gradient-to-t from-slate-50 via-slate-50 to-transparent z-40">
+        <div class="bg-white border border-slate-200 rounded-full flex items-center px-2 py-1.5 shadow-sm">
+            <button
+                class="w-8 h-8 rounded-full text-slate-400 hover:text-primary transition-colors flex items-center justify-center">
+                <i class="fa-solid fa-keyboard text-sm"></i>
+            </button>
+            <input type="text" placeholder="长按说话或输入文字..."
+                class="flex-1 bg-transparent border-none focus:outline-none text-sm px-2 text-slate-700">
+            <button
+                class="w-8 h-8 rounded-full bg-primary text-white shadow-md shadow-primary/30 flex items-center justify-center transition-transform active:scale-90">
+                <i class="fa-solid fa-arrow-up text-sm"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Bottom Tab Bar -->
+    <div
+        class="absolute bottom-0 w-full bg-white border-t border-slate-100 px-6 py-2 pb-6 flex justify-between items-center z-50">
+        <a href="home.html" class="flex flex-col items-center p-2 text-slate-400 hover:text-primary transition-colors">
+            <i class="fa-solid fa-house text-xl mb-1"></i>
+            <span class="text-[10px] font-medium">明细</span>
+        </a>
+        <a href="chat.html" class="flex flex-col items-center p-2 text-primary -mt-6">
+            <div
+                class="w-14 h-14 bg-primary text-white rounded-full flex items-center justify-center shadow-lg shadow-primary/30 border-4 border-slate-50">
+                <i class="fa-solid fa-plus text-xl"></i>
+            </div>
+        </a>
+        <a href="profile.html"
+            class="flex flex-col items-center p-2 text-slate-400 hover:text-primary transition-colors">
+            <i class="fa-solid fa-user text-xl mb-1"></i>
+            <span class="text-[10px] font-medium">我</span>
+        </a>
+    </div>
+
+</body>
+
+</html>
